@@ -3,34 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Meal Finder</title>
+    <link rel="stylesheet" type="text/css" href="styles/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather&family=Roboto&display=swap" rel="stylesheet">
 </head>
 <body>
     <div>
-        <h1>Meal Finder</h1>
+        <h1 class="text-align-center merriweather">Meal Finder</h1>
     </div>
-    <div>
+    <div class="container">
     <% if (locals.name) {%>
-    <%= name %> <br>
-    <%= origin %><br>
-    <%= category %><br>
-    <%= instructions %><br>
-    <%= image %><br>
-    <%= tutorial %><br>
-    <%= recipe%><br>
+    <div class="grid">
+    <img alt="food" src="<%= image %>" >
+    <h2 class="text-align-center merriweather"><%= name %> </h2>
+    <p class="text-align-center roboto">Origin: <%= origin %></p>
+    <p class="text-align-center roboto">Category: <%= category %></p>
+    <p class="text-align-center instructions roboto"><%= instructions %></p>
+    <p class="text-align-center roboto"><a href="<%= tutorial %>">Watch tutorial</a> - <a href="<%= recipe%>">See detailed recipe</a></p>
+    
     <% } else {%>
-        <h2>Please choose a category.</h2>
+        <div class="home">
+            <h2 class="text-align-center merriweather">Please choose a category.</h2>
+        </div>
     <% } %>
-    <div>
-        <form method="get">
-            <button formaction="/random">Random</button>
-            <button formaction="/vegetarian">Vegetarian</button>
-            <button formaction="/seafood">Seafood</button>
-            <button formaction="/chicken">Chicken</button>
-            <button formaction="/pork">Pork</button>
-            <button formaction="/beef">Beef</button>
-            <button formaction="/dessert">Dessert</button>
+    <div class="div">
+        <form method="get" class="buttons">
+            <button formaction="/random" class="roboto">Random</button>
+            <button formaction="/vegetarian" class="roboto">Vegetarian</button>
+            <button formaction="/seafood" class="roboto">Seafood</button>
+            <button formaction="/chicken" class="roboto">Chicken</button>
+            <button formaction="/pork" class="roboto">Pork</button>
+            <button formaction="/beef" class="roboto">Beef</button>
+            <button formaction="/dessert" class="roboto">Dessert</button>
         </form>
+    </div>
     </div>
     </div>
 </body>
