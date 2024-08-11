@@ -88,7 +88,123 @@ app.get("/dessert", async (req, res) => {
         console.log(error)
         res.render("index.ejs", {content: error});
     }
-}); 
+});
+
+app.get("/chicken", async (req, res) => {
+    try {
+        const response = await axios.get("https://www.themealdb.com/api/json/v1/1/filter.php?c=Chicken", config);
+        const result = response.data;
+        let meals = result["meals"];
+        let randomMeal = meals[Math.floor(Math.random() * meals.length)];
+        let randomMealName = randomMeal["strMeal"];
+        try {
+            const response = await axios.get(`https://www.themealdb.com/api/json/v1/1/search.php?s=${randomMealName}`, config);
+            const result = response.data;
+            const path = result["meals"][0];
+            let name = path["strMeal"];
+            let origin = path["strArea"];
+            let category = path["strCategory"];
+            let instructions = path["strInstructions"];
+            let image = path["strMealThumb"];
+            let tutorial = path["strYoutube"];
+            let recipe = path["strSource"];
+            res.render("index.ejs", {name: name, origin: origin, category: category, instructions: instructions, image: image, tutorial:tutorial, recipe:recipe});
+        } catch (error) {
+            console.log(error)
+            res.render("index.ejs", {content: error});
+        }
+    } catch (error) {
+        console.log(error)
+        res.render("index.ejs", {content: error});
+    }
+});
+
+app.get("/beef", async (req, res) => {
+    try {
+        const response = await axios.get("https://www.themealdb.com/api/json/v1/1/filter.php?c=Beef", config);
+        const result = response.data;
+        let meals = result["meals"];
+        let randomMeal = meals[Math.floor(Math.random() * meals.length)];
+        let randomMealName = randomMeal["strMeal"];
+        try {
+            const response = await axios.get(`https://www.themealdb.com/api/json/v1/1/search.php?s=${randomMealName}`, config);
+            const result = response.data;
+            const path = result["meals"][0];
+            let name = path["strMeal"];
+            let origin = path["strArea"];
+            let category = path["strCategory"];
+            let instructions = path["strInstructions"];
+            let image = path["strMealThumb"];
+            let tutorial = path["strYoutube"];
+            let recipe = path["strSource"];
+            res.render("index.ejs", {name: name, origin: origin, category: category, instructions: instructions, image: image, tutorial:tutorial, recipe:recipe});
+        } catch (error) {
+            console.log(error)
+            res.render("index.ejs", {content: error});
+        }
+    } catch (error) {
+        console.log(error)
+        res.render("index.ejs", {content: error});
+    }
+});
+
+app.get("/pork", async (req, res) => {
+    try {
+        const response = await axios.get("https://www.themealdb.com/api/json/v1/1/filter.php?c=Pork", config);
+        const result = response.data;
+        let meals = result["meals"];
+        let randomMeal = meals[Math.floor(Math.random() * meals.length)];
+        let randomMealName = randomMeal["strMeal"];
+        try {
+            const response = await axios.get(`https://www.themealdb.com/api/json/v1/1/search.php?s=${randomMealName}`, config);
+            const result = response.data;
+            const path = result["meals"][0];
+            let name = path["strMeal"];
+            let origin = path["strArea"];
+            let category = path["strCategory"];
+            let instructions = path["strInstructions"];
+            let image = path["strMealThumb"];
+            let tutorial = path["strYoutube"];
+            let recipe = path["strSource"];
+            res.render("index.ejs", {name: name, origin: origin, category: category, instructions: instructions, image: image, tutorial:tutorial, recipe:recipe});
+        } catch (error) {
+            console.log(error)
+            res.render("index.ejs", {content: error});
+        }
+    } catch (error) {
+        console.log(error)
+        res.render("index.ejs", {content: error});
+    }
+});
+
+app.get("/seafood", async (req, res) => {
+    try {
+        const response = await axios.get("https://www.themealdb.com/api/json/v1/1/filter.php?c=Seafood", config);
+        const result = response.data;
+        let meals = result["meals"];
+        let randomMeal = meals[Math.floor(Math.random() * meals.length)];
+        let randomMealName = randomMeal["strMeal"];
+        try {
+            const response = await axios.get(`https://www.themealdb.com/api/json/v1/1/search.php?s=${randomMealName}`, config);
+            const result = response.data;
+            const path = result["meals"][0];
+            let name = path["strMeal"];
+            let origin = path["strArea"];
+            let category = path["strCategory"];
+            let instructions = path["strInstructions"];
+            let image = path["strMealThumb"];
+            let tutorial = path["strYoutube"];
+            let recipe = path["strSource"];
+            res.render("index.ejs", {name: name, origin: origin, category: category, instructions: instructions, image: image, tutorial:tutorial, recipe:recipe});
+        } catch (error) {
+            console.log(error)
+            res.render("index.ejs", {content: error});
+        }
+    } catch (error) {
+        console.log(error)
+        res.render("index.ejs", {content: error});
+    }
+});
 
 app.listen(port, () => {
     console.log(`Server running on port ${port}.`);
