@@ -6,7 +6,10 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Hello</h1>
+    <div>
+        <h1>Meal Finder</h1>
+    </div>
+    <div>
     <% if (locals.name) {%>
     <%= name %> <br>
     <%= origin %><br>
@@ -15,6 +18,16 @@
     <%= image %><br>
     <%= tutorial %><br>
     <%= recipe%><br>
+    <% } else {%>
+        <h2>Please choose a category.</h2>
     <% } %>
+    <div>
+        <form method="get">
+            <button formaction="/random">Random</button>
+            <button formaction="/vegetarian">Vegetarian</button>
+            <button formaction="/dessert">Dessert</button>
+        </form>
+    </div>
+    </div>
 </body>
 </html>
